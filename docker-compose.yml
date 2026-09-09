@@ -1,0 +1,61 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    env_file: .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-ges}
+      POSTGRES_DB: ${POSTGRES_DB:-ges}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-ges} -d ${POSTGRES_DB:-ges}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    expose:
+      - "5432"
+
+  api:
+    build: .
+    env_file: .env
+    environment:
+      DUCKDB_PATH: /data/telemetry.duckdb
+      MODEL_PATH: /artifacts/model.joblib
+      MODEL_METADATA_PATH: /artifacts/model_metadata.json
+      TARIFF_USD_PER_KWH: ${TARIFF_USD_PER_KWH:-0.10}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    volumes:
+      - duckdbdata:/data
+      - artifacts:/artifacts
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 240s
+
+  streamlit:
+    build: .
+    env_file: .env
+    command: >
+      streamlit run src/ges_intel/interfaces/dashboard/app.py
+      --server.address 0.0.0.0
+      --server.port 8501
+      --server.headless true
+    environment:
+      API_BASE_URL: http://api:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  duckdbdata:
+  artifacts:
