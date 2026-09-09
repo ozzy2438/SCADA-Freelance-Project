@@ -1,0 +1,47 @@
+{
+  "config": {
+    "seed": 42,
+    "n_days": 14,
+    "inverters": 5,
+    "telemetry_rows": 6720,
+    "tariff_usd_per_kwh": 0.1
+  },
+  "model": {
+    "rmse_model_kw": 1.0063,
+    "rmse_physics_kw": 3.1827,
+    "improvement_pct": 68.38,
+    "clean_training_rows": 5978
+  },
+  "detection": {
+    "soiling_inverter_days": 14,
+    "covered_soiling_inverter_days": 14,
+    "recall_inverter_days": 1.0,
+    "precision_inverter_days": 0.5833,
+    "clean_inverter_days": 61,
+    "false_alarm_inverter_days": 10,
+    "night_rows": 3096,
+    "night_breach_rows": 0,
+    "night_alerts": 0,
+    "alerts_total": 11,
+    "alerts_open": 1,
+    "alerts_opened_on_soiling_day": 11,
+    "alerts_opened_on_clean_day": 0,
+    "detection_latency_min_median": 45.0,
+    "detection_latency_min_max": 45.0,
+    "streaks_fired": 25
+  },
+  "money": {
+    "ground_truth_lost_kwh": 1535.12,
+    "ground_truth_lost_usd": 153.51,
+    "alerted_lost_kwh": 1168.3,
+    "alerted_cash_loss_usd": 116.83,
+    "plant_actual_kwh": 48546.3685,
+    "plant_expected_kwh": 50089.8888,
+    "plant_health_pct": 96.92
+  },
+  "performance": {
+    "ingest_seconds_total": 99.74,
+    "ingest_rows_per_second": 67.4,
+    "metrics_query_seconds": 0.089
+  }
+}
