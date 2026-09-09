@@ -96,6 +96,16 @@ Sistemin sessizce yanlış çalışmasını engelleyen korumalar:
 
 > "Panel kirlenmesi ve invertör düşük performansını ay sonu faturası yerine **45 dakika** içinde, kaybı doğrudan **dolar cinsinden** iş emrine dönüştürerek yakalayan uyarı motoru — referans testinde kirlenme günlerinin **%100'ünü**, sahte alarm üretmeden tespit etti."
 
+## CV / LinkedIn Entry
+
+**Freelance AI & Data Engineer — Solar Asset Performance Intelligence**
+Contract project for renewable-energy asset owners and O&M operators | Remote | 2026
+
+- Designed and shipped an end-to-end alerting engine that detects hidden solar production losses (panel soiling, inverter underperformance) **within 45 minutes instead of at month-end invoice review**, converting every shortfall into a priced work order (`lost kWh × tariff`); on a 650 kWp reference fleet it surfaced **~$4k/yr of otherwise invisible loss (~$6/kWp/yr, ≈$60k/yr at 10 MWp scale)**.
+- Trained a RandomForest expected-power model on anomaly-free telemetry (irradiance, temperature, hour, capacity) that **beat a transparent physics baseline by 68% (RMSE 1.0 kW vs 3.2 kW)** and enforced that baseline as a training quality gate so a weaker model can never ship.
+- Engineered a night/low-irradiance eligibility gate and a disk-backed four-slot streak rule in DuckDB, achieving **100% recall on soiling inverter-days and zero false alarms opened on clean days** across 3,096 night rows in benchmark testing; alerts persisted in PostgreSQL with one-open-alert-per-inverter idempotency and rising-edge/auto-resolve lifecycle.
+- Delivered as a production-ready stack (FastAPI, Streamlit, PostgreSQL/DuckDB, Docker Compose, Alembic) with **63 tests and 92% coverage**, API-key auth, explicit 422/400/503 error contracts, versioned model artifacts, and secret-free CI (GitGuardian and Sourcery clean).
+
 ### Yeniden üretme
 
 ```bash
