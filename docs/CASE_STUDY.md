@@ -98,13 +98,13 @@ Sistemin sessizce yanlış çalışmasını engelleyen korumalar:
 
 ## CV / LinkedIn Entry
 
-**Freelance AI & Data Engineer — Solar Asset Performance Intelligence**
+**Freelance AI & Data Engineer — Solar Production Loss & Asset Performance Intelligence**
 Contract project for renewable-energy asset owners and O&M operators | Remote | 2026
 
-- Designed and shipped an end-to-end alerting engine that detects hidden solar production losses (panel soiling, inverter underperformance) **within 45 minutes instead of at month-end invoice review**, converting every shortfall into a priced work order (`lost kWh × tariff`); on a 650 kWp reference fleet it surfaced **~$4k/yr of otherwise invisible loss (~$6/kWp/yr, ≈$60k/yr at 10 MWp scale)**.
-- Trained a RandomForest expected-power model on anomaly-free telemetry (irradiance, temperature, hour, capacity) that **beat a transparent physics baseline by 68% (RMSE 1.0 kW vs 3.2 kW)** and enforced that baseline as a training quality gate so a weaker model can never ship.
-- Engineered a night/low-irradiance eligibility gate and a disk-backed four-slot streak rule in DuckDB, achieving **100% recall on soiling inverter-days and zero false alarms opened on clean days** across 3,096 night rows in benchmark testing; alerts persisted in PostgreSQL with one-open-alert-per-inverter idempotency and rising-edge/auto-resolve lifecycle.
-- Delivered as a production-ready stack (FastAPI, Streamlit, PostgreSQL/DuckDB, Docker Compose, Alembic) with **63 tests and 92% coverage**, API-key auth, explicit 422/400/503 error contracts, versioned model artifacts, and secret-free CI (GitGuardian and Sourcery clean).
+- Built an operational intelligence engine for solar asset owners to uncover production losses caused by panel soiling and inverter underperformance—issues that conventional fault monitoring can miss until month-end—enabling operations teams to intervene **within 45 minutes of a sustained shortfall**.
+- Established a weather-adjusted production baseline that distinguishes genuine underperformance from normal changes in sunlight and temperature; in the controlled reference scenario, the engine identified **every simulated soiling day without opening an alert on a normally performing day**.
+- Converted each production deviation into **lost energy and cash at risk**, turning technical sensor data into prioritized maintenance decisions; the 650 kWp reference scenario exposed an annualized **~$4,000 in otherwise hidden loss**, equivalent to roughly **$6 per kWp per year** under the benchmark assumptions.
+- Delivered the solution as a deployable operations cockpit with automated alert creation, recovery tracking, and an auditable event history, using **Python, FastAPI, Streamlit, PostgreSQL, DuckDB, scikit-learn, and Docker**.
 
 ### Yeniden üretme
 
