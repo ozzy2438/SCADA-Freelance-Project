@@ -99,12 +99,12 @@ Sistemin sessizce yanlış çalışmasını engelleyen korumalar:
 ## CV / LinkedIn Entry
 
 **Freelance AI & Data Engineer — Renewable Energy (Solar Asset Management)**
-Contract project for solar asset owners and O&M operators | Remote | 2026
+Contract project for solar asset owners and O&M operators | Sole engineer — owned the system end-to-end | Remote | 2026
 
-- Designed and shipped a production-loss alerting engine that detects panel soiling and inverter underperformance **within 45 minutes** — losses invisible to standard SCADA fault monitoring until month-end invoice review — cutting the operations team's intervention window from up to 30 days to under one hour.
-- Built a weather-adjusted expected-production model that separates genuine equipment underperformance from normal irradiance and temperature variation, catching **100% of soiling events with zero false alarms** on healthy days in the reference benchmark.
+- **Owned the full delivery end-to-end** — problem framing, architecture, modeling, and deployment — designing and shipping a production-loss alerting engine that detects panel soiling and inverter underperformance **within 45 minutes** — losses invisible to standard SCADA fault monitoring until month-end invoice review — cutting the operations team's intervention window from up to 30 days to under one hour.
+- **Owned the detection logic**: built a weather-adjusted expected-production model that separates genuine equipment underperformance from normal irradiance and temperature variation, catching **100% of soiling events with zero false alarms** on healthy days in the reference benchmark.
 - Converted every production deviation into **lost kWh and cash at risk**, so maintenance is prioritized by financial impact rather than raw sensor noise; the 650 kWp reference fleet surfaced **~$4,000/year in hidden losses (~$6/kWp/yr, ≈$60,000/yr at 10 MWp scale)** that never appear in fault logs.
-- Delivered an end-to-end operations cockpit with automated alert lifecycle (open on sustained shortfall, auto-resolve on recovery) and an auditable event history, deployed with **Python, scikit-learn, FastAPI, Streamlit, PostgreSQL, DuckDB, and Docker**.
+- **Owned production reliability and delivery**: shipped an end-to-end operations cockpit with automated alert lifecycle (open on sustained shortfall, auto-resolve on recovery) and an auditable event history, deployed with **Python, scikit-learn, FastAPI, Streamlit, PostgreSQL, DuckDB, and Docker**.
 
 ### Yeniden üretme
 
