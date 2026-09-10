@@ -4,6 +4,8 @@ Catch hidden solar-plant losses (soiling, inverter underperformance, shading) **
 
 **Business value:** lost energy is converted with `lost_kWh = max(0, expected_kW − actual_kW) × 0.25 h`, then `cash_loss = lost_kWh × $0.10`. A 15% soiling event on a 200 kW block is not “a slightly lower curve” — it is an open work order with a cash-at-risk column.
 
+On the reference benchmark (`seed=42`, 14 days, 5 inverters / 650 kWp) the engine covered **14/14 soiling inverter-days**, opened **11/11 alerts on genuinely soiled days**, produced **zero night alerts** across 3,096 night rows, and flagged each event **45 minutes** after the first shortfall slot. See [docs/CASE_STUDY.md](docs/CASE_STUDY.md) and reproduce with `python scripts/evaluate_detection.py`.
+
 ## Architecture
 
 ```
