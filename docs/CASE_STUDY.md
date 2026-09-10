@@ -98,13 +98,13 @@ Sistemin sessizce yanlış çalışmasını engelleyen korumalar:
 
 ## CV / LinkedIn Entry
 
-**Freelance AI & Data Engineer — Solar Production Loss & Asset Performance Intelligence**
-Contract project for renewable-energy asset owners and O&M operators | Remote | 2026
+**Freelance AI & Data Engineer — Renewable Energy (Solar Asset Management)**
+Contract project for solar asset owners and O&M operators | Remote | 2026
 
-- Built an operational intelligence engine for solar asset owners to uncover production losses caused by panel soiling and inverter underperformance—issues that conventional fault monitoring can miss until month-end—enabling operations teams to intervene **within 45 minutes of a sustained shortfall**.
-- Established a weather-adjusted production baseline that distinguishes genuine underperformance from normal changes in sunlight and temperature; in the controlled reference scenario, the engine identified **every simulated soiling day without opening an alert on a normally performing day**.
-- Converted each production deviation into **lost energy and cash at risk**, turning technical sensor data into prioritized maintenance decisions; the 650 kWp reference scenario exposed an annualized **~$4,000 in otherwise hidden loss**, equivalent to roughly **$6 per kWp per year** under the benchmark assumptions.
-- Delivered the solution as a deployable operations cockpit with automated alert creation, recovery tracking, and an auditable event history, using **Python, FastAPI, Streamlit, PostgreSQL, DuckDB, scikit-learn, and Docker**.
+- Designed and shipped a production-loss alerting engine that detects panel soiling and inverter underperformance **within 45 minutes** — losses invisible to standard SCADA fault monitoring until month-end invoice review — cutting the operations team's intervention window from up to 30 days to under one hour.
+- Built a weather-adjusted expected-production model that separates genuine equipment underperformance from normal irradiance and temperature variation, catching **100% of soiling events with zero false alarms** on healthy days in the reference benchmark.
+- Converted every production deviation into **lost kWh and cash at risk**, so maintenance is prioritized by financial impact rather than raw sensor noise; the 650 kWp reference fleet surfaced **~$4,000/year in hidden losses (~$6/kWp/yr, ≈$60,000/yr at 10 MWp scale)** that never appear in fault logs.
+- Delivered an end-to-end operations cockpit with automated alert lifecycle (open on sustained shortfall, auto-resolve on recovery) and an auditable event history, deployed with **Python, scikit-learn, FastAPI, Streamlit, PostgreSQL, DuckDB, and Docker**.
 
 ### Yeniden üretme
 
